@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -63,28 +65,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
-    return Image.asset('assets/images/2.png', fit: BoxFit.cover,);
-
-    // return Person( firstName : "Sarah", lastName : "Ali");  // 함수 사용
-    // return  MaterialApp(                                    // 트리 구조
-    //   home: Scaffold(
-    //     appBar: AppBar(
-    //       title: Text("A fancier app"),
-    //     ),
-    //     body: Container(
-    //       alignment: Alignment.center,
-    //       child: Text("Hello World"),
-    //     ),
-    //     floatingActionButton: FloatingActionButton(
-    //       child:  Icon(Icons.thumb_up),
-    //       onPressed: () => {},
-    //     ),
-    //   ),
-    // );
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("fffffff"),
+        ),
+        body: Checkbox(
+            value: true,
+            onChanged: (val) {
+              print(val);
+            }
+        ),
+      ),
+    );
   }
 }
 
+//메소드 사용
 class Person extends StatelessWidget {
   final String firstName;
   final String lastName;
@@ -97,3 +94,37 @@ class Person extends StatelessWidget {
     ) ;
   }
 }
+
+//이미지
+class ImageWinter extends StatelessWidget {
+
+  Widget build(BuildContext context) {
+    return Image.asset('assets/images/2.png', fit: BoxFit.contain,);
+  }
+}
+
+class TextFieldTest extends StatelessWidget {
+  //TextEditingController _emailController = TextEditingController(text: "Initial value here");
+  // String _searchTerm = 'Search Terms!';
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("my_app"),
+        ),
+        body: const TextField(
+          // onChanged: (String val) => _searchTerm = val,
+          // controller: _emailController,
+          //  keyboardType: TextInputType.phone,
+          decoration: InputDecoration(
+            labelText: "Email",
+            hintText: 'kjennn@email.com',
+            icon: Icon(Icons.contact_mail),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
